@@ -1,0 +1,33 @@
+<?php
+/**
+ * HdInstagram Configuration
+ *
+ * If you have a ./config/autoload/ directory set up for your project, you can
+ * drop this config file in it and change the values as you wish.
+ */
+$settings = array(
+    /**
+     * Instagram Client ID
+     *
+     * Upon registering your application with Instagram, they will give you a
+     * Client ID. Put that Client ID here. If you have not registered your
+     * application with Instagram yet, visit http://instagram.com/developer/clients/manage/
+     */
+    //'instagram_client_id' => 'INSTAGRAM_CLIENT_ID_GOES_HERE',
+
+    /**
+     * Instagram Client Secret
+     *
+     * Upon registering your application with Instagram, they will give you a
+     * Client Secret. Put that Client Secret here. If you have not registered your
+     * application with Instagram yet, visit http://instagram.com/developer/clients/manage/
+     */
+    //'instagram_client_secret' => 'INSTAGRAM_CLIENT_SECRET_GOES_HERE',
+);
+
+/**
+ * You do not need to edit below this line
+ */
+return array(
+    'hdinstagram' => $settings,
+);

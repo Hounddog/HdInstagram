@@ -1,0 +1,27 @@
+{
+    "name": "hounddog/hd-instagram",
+    "description": "ZF2 module for Instagram API.",
+    "type": "library",
+    "keywords": [
+        "zf2",
+        "instagram",
+        "api"
+    ],
+    "homepage": "https://github.com/Hounddog/HdInstagram",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martin Shwalbe",
+            "email": "martin.shwalbe@gmail.com",
+            "homepage": "http://hounddog.github.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}

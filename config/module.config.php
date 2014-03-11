@@ -20,7 +20,7 @@ return array(
         'factories' => array(
             'HD\Instagram\Client' => function($sm) {
             	$client = new Client();
-            	$client->setApiNamespace('HdInstagram');
+            	$client->setApiNamespace('HD\Instagram');
             	return $client;
             },
             'HdApiClient\HttpClient' => function($sm) {
@@ -31,8 +31,9 @@ return array(
             },
         ),
         'invokables' => array(
-        	'HD\Instagram\Api\Tags' => 'HdInstagram\Api\Tags',
+        	'HD\Instagram\Api\Tags' => 'HD\Instagram\Api\Tags',
             'HD\Instagram\Api\Subscribe' => 'HD\Instagram\Api\Subscribe',
+            'HD\Instagram\Api\Media' => 'HD\Instagram\Api\Media',
             'HD\Instagram\Listener\Auth\UrlClientId'     => 'HdApiClient\Listener\Auth\UrlClientId',
         ),
     ),

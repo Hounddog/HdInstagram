@@ -5,7 +5,7 @@ namespace HD\Instagram\Api;
 use HdApiClient\Api\AbstractApi;
 use HD\Instagram\Collection\RepositoryCollection;
 
-class Tags extends AbstractApi
+class Media extends AbstractApi
 {
     /**
      * Get Recent Media
@@ -16,15 +16,12 @@ class Tags extends AbstractApi
      * @param array $params
      * @return RepositoryCollection
      */
-    public function recent($tag, array $params = array())
+    public function fetch($id)
     {
-        $httpClient =$this->getClient()->getHttpClient();
-        $collection = new RepositoryCollection($httpClient, 'tags/'.$tag.'/media/recent', $params);
-
-        return $collection;
+        return $this->get('media/' . $id);
     }
 
-    public function tagName()
+    public function popular()
     {
         # code...
     }

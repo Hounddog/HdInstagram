@@ -1,6 +1,6 @@
 <?php
 
-namespace HdInstagram\Collection;
+namespace HD\Instagram\Collection;
 
 use HdApiClient\Http\Client;
 use HdApiClient\Api\Model\Repo as RepoModel;

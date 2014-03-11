@@ -1,9 +1,9 @@
 <?php
 
-namespace HdInstagram\Api;
+namespace HD\InstagramApi;
 
 use HdApiClient\Api\AbstractApi;
-use HdInstagram\Collection\RepositoryCollection;
+use HD\Instagram\Collection\RepositoryCollection;
 
 class Tags extends AbstractApi
 {

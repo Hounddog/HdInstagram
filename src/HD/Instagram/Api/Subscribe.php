@@ -22,7 +22,7 @@ class Subscribe extends AbstractApi
         $params['object'] = 'tag';
         $params['aspect'] = 'media';
         $params['object_id'] = $tag;
-        $params['callback_url'] = $config['hdinstagram']['callback_url'];
+        $params['callback_url'] = $config['hd-instagram']['callback_url'];
 
         return $this->post('subscriptions', $params);
     }

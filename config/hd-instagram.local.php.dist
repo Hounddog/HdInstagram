@@ -29,5 +29,5 @@ $settings = array(
  * You do not need to edit below this line
  */
 return array(
-    'hdinstagram' => $settings,
+    'hd-instagram' => $settings,
 );

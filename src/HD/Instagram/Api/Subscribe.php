@@ -1,9 +1,9 @@
 <?php
 
-namespace HdInstagram\Api;
+namespace HD\Instagram\Api;
 
 use HdApiClient\Api\AbstractApi;
-use HdInstagram\Collection\RepositoryCollection;
+use HD\Instagram\Collection\RepositoryCollection;
 
 class Subscribe extends AbstractApi
 {

@@ -9,7 +9,7 @@ return array(
                 'options' => array(
                     'route'    => '/hd-instagram',
                     'defaults' => array(
-                        'controller' => 'HdInstagram\Controller\Index',
+                        'controller' => 'HD\Instagram\Controller\Index',
                         'action' => 'index',
                     ),
                 ),
@@ -18,25 +18,25 @@ return array(
     ),
 	'service_manager' => array(
         'factories' => array(
-            'HdInstagram\Client' => function($sm) {
+            'HD\Instagram\Client' => function($sm) {
             	$client = new Client();
             	$client->setApiNamespace('HdInstagram');
             	return $client;
             },
             'HdApiClient\HttpClient' => function($sm) {
                 $config = $sm->get("Config");
-                $options = $config['hdinstagram']['options'];
+                $options = $config['hd-instagram']['options'];
                 $client = new HdApiClient\Http\Client($options);
                 return $client;
             },
         ),
         'invokables' => array(
-        	'HdInstagram\Api\Tags' => 'HdInstagram\Api\Tags',
-            'HdInstagram\Api\Subscribe' => 'HdInstagram\Api\Subscribe',
-            'HdInstagram\Listener\Auth\UrlClientId'     => 'HdApiClient\Listener\Auth\UrlClientId',
+        	'HD\Instagram\Api\Tags' => 'HdInstagram\Api\Tags',
+            'HD\Instagram\Api\Subscribe' => 'HD\Instagram\Api\Subscribe',
+            'HD\Instagram\Listener\Auth\UrlClientId'     => 'HdApiClient\Listener\Auth\UrlClientId',
         ),
     ),
-	'hdinstagram' => array(
+	'hd-instagram' => array(
         'options' => array(
             'base_url' => 'https://api.instagram.com/',
             'api_version' => 'v1',
@@ -45,7 +45,7 @@ return array(
 	),
     'controllers' => array(
         'invokables' => array(
-            'HdInstagram\Controller\Index' => 'HdInstagram\Controller\IndexController',
+            'HD\Instagram\Controller\Index' => 'HD\Instagram\Controller\IndexController',
         ),
     ),
     'view_manager' => array(

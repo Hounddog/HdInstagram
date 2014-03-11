@@ -1,6 +1,6 @@
 <?php
 
-namespace HdInstagram\Listener\Auth;
+namespace HD\Instagram\Listener\Auth;
 
 use Zend\EventManager\Event;
 use Zend\Validator\NotEmpty;

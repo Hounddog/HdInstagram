@@ -1,6 +1,6 @@
 <?php
 
-namespace HdInstagram;
+namespace HD\Instagram;
 
 use Zend\ModuleManager\ModuleManager,
     Zend\EventManager\StaticEventManager,
@@ -19,8 +19,8 @@ class Module extends AbstractModule
 
         $em->attach('HdApiClient\Client', 'api', function($e) use ($sm) {
             $config = $sm->get('Config');
-            $client_id = $config['hdinstagram']['client_id'];
-            $client_secret = $config['hdinstagram']['client_secret'];
+            $client_id = $config['hd-instagram']['client_id'];
+            $client_secret = $config['hd-instagram']['client_secret'];
             $client = $e->getTarget();
             $client->authenticate('url_client_id', $client_id, $client_secret);
         } );

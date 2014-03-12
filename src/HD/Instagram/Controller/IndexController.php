@@ -22,7 +22,6 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
-        
         $method = strtolower($this->request->getMethod());
 
         if($method == 'get') {
@@ -31,20 +30,18 @@ class IndexController extends AbstractActionController
             $content = $this->request->getContent();
             $answer =  Json::decode($content, $this->jsonDecodeType);
          
-            $id = $answer[0]['object_id'];
-            //$this->getEventManager()->trigger(__FUNCTION__, $this, $id);
-
-            $service = $this->getServiceLocator()->get('Instagram\Service\Instagram');
-            $service->fetch($id, 5);
+            $this->getEventManager()->trigger('update', $this, $answer );
         }
-        
-        //exit;
+
         return new ViewModel();
     }
 
     public function get()
     {
         $challenge = $this->request->getQuery()->get('hub_challenge', false);
+        if($challenge === false) {
+            throw new \Exception('Missing challenge.');
+        };
         $response = $this->getResponse();
         $response->setStatusCode(200);
         $response->setContent($challenge);

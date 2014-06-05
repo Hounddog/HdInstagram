@@ -2,7 +2,7 @@
 
 namespace HD\Instagram\Api;
 
-use HdApiClient\Api\AbstractApi;
+use HD\Api\Client\Api\AbstractApi;
 use HD\Instagram\Collection\RepositoryCollection;
 
 class Tags extends AbstractApi
@@ -22,15 +22,5 @@ class Tags extends AbstractApi
         $collection = new RepositoryCollection($httpClient, 'tags/'.$tag.'/media/recent', $params);
 
         return $collection;
-    }
-
-    public function tagName()
-    {
-        # code...
-    }
-
-    public function search()
-    {
-        # code...
     }
 }

@@ -4,7 +4,7 @@ namespace HD\Instagram\Listener\Auth;
 
 use Zend\EventManager\Event;
 use Zend\Validator\NotEmpty;
-use HdApiClient\Listener\Auth\AbstractAuthListener;
+use HD\Api\Client\Listener\Auth\AbstractAuthListener;
 
 class UrlClientId extends AbstractAuthListener
 {

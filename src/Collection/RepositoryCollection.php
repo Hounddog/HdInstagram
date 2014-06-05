@@ -2,8 +2,8 @@
 
 namespace HD\Instagram\Collection;
 
-use HdApiClient\Http\Client;
-use HdApiClient\Api\Model\Repo as RepoModel;
+use HD\Api\Client\Http\Client;
+use HD\Api\Client\Api\Model\Repo as RepoModel;
 use Zend\Stdlib\Hydrator;
 
 use Closure, Iterator;

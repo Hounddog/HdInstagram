@@ -2,7 +2,7 @@
 
 namespace HD\Instagram\Api;
 
-use HdApiClient\Api\AbstractApi;
+use HD\Api\Client\Api\AbstractApi;
 use HD\Instagram\Collection\RepositoryCollection;
 
 class Subscribe extends AbstractApi

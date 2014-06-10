@@ -17,8 +17,7 @@ class UrlClientId extends AbstractAuthListener
     {
         $validator = new NotEmpty();
 
-        if (
-            !isset($this->options['tokenOrLogin'])
+        if (!isset($this->options['tokenOrLogin'])
             || !$validator->isValid($this->options['tokenOrLogin'])
         ) {
             throw new Exception\InvalidArgumentException('You need to set client_id!');

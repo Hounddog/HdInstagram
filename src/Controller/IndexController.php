@@ -24,13 +24,13 @@ class IndexController extends AbstractActionController
     {
         $method = strtolower($this->request->getMethod());
 
-        if($method == 'get') {
+        if ($method == 'get') {
             return $this->get();
         } else {
             $content = $this->request->getContent();
             $answer =  Json::decode($content, $this->jsonDecodeType);
          
-            $this->getEventManager()->trigger('update', $this, $answer );
+            $this->getEventManager()->trigger('update', $this, $answer);
         }
 
         return new ViewModel();
@@ -39,7 +39,8 @@ class IndexController extends AbstractActionController
     public function get()
     {
         $challenge = $this->request->getQuery()->get('hub_challenge', false);
-        if($challenge === false) {
+        
+        if ($challenge === false) {
             throw new \Exception('Missing challenge.');
         };
         $response = $this->getResponse();

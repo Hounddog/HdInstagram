@@ -17,7 +17,7 @@ class Module extends AbstractModule
         $sm = $app->getServiceManager();
 
 
-        $em->attach('HdApiClient\Client', 'api', function($e) use ($sm) {
+        $em->attach('HD\Api\Client\Client', 'api', function($e) use ($sm) {
             $config = $sm->get('Config');
             $client_id = $config['hd-instagram']['client_id'];
             $client_secret = $config['hd-instagram']['client_secret'];

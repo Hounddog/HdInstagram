@@ -17,7 +17,7 @@ class Module extends AbstractModule
         $sm = $app->getServiceManager();
 
 
-        $em->attach('HdApiClient\Client', 'api', function($e) use ($sm) {
+        $em->attach('HD\Api\Client\Client', 'api', function($e) use ($sm) {
             $config = $sm->get('Config');
             $client_id = $config['hd-instagram']['client_id'];
             $client_secret = $config['hd-instagram']['client_secret'];
@@ -39,7 +39,7 @@ class Module extends AbstractModule
         return array(
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    __NAMESPACE__ => __DIR__ . '/src/',
                 ),
             ),
         );

@@ -2,7 +2,7 @@
 
 namespace HD\Instagram\Api;
 
-use HdApiClient\Api\AbstractApi;
+use HD\Api\Client\Api\AbstractApi;
 use HD\Instagram\Collection\RepositoryCollection;
 
 class Media extends AbstractApi
@@ -19,15 +19,5 @@ class Media extends AbstractApi
     public function fetch($id)
     {
         return $this->get('media/' . $id);
-    }
-
-    public function popular()
-    {
-        # code...
-    }
-
-    public function search()
-    {
-        # code...
     }
 }

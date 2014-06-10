@@ -4,7 +4,7 @@ namespace HD\Instagram\Listener\Auth;
 
 use Zend\EventManager\Event;
 use Zend\Validator\NotEmpty;
-use HdApiClient\Listener\Auth\AbstractAuthListener;
+use HD\Api\Client\Listener\Auth\AbstractAuthListener;
 
 class UrlClientId extends AbstractAuthListener
 {
@@ -17,8 +17,7 @@ class UrlClientId extends AbstractAuthListener
     {
         $validator = new NotEmpty();
 
-        if (
-            !isset($this->options['tokenOrLogin'])
+        if (!isset($this->options['tokenOrLogin'])
             || !$validator->isValid($this->options['tokenOrLogin'])
         ) {
             throw new Exception\InvalidArgumentException('You need to set client_id!');

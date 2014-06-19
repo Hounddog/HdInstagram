@@ -1,6 +1,4 @@
 <?php
-use HD\Api\Client\Client as Client;
-
 return array(
     'router' => array(
         'routes' => array(
@@ -17,24 +15,11 @@ return array(
         ),
     ),
     'service_manager' => array(
-        'factories' => array(
-            'HD\Instagram\Client' => function ($sm) {
-                $client = new Client();
-                $client->setApiNamespace('HD\Instagram');
-                return $client;
-            },
-            'HD\Api\Client\HttpClient' => function ($sm) {
-                $config = $sm->get("Config");
-                $options = $config['hd-instagram']['options'];
-                $client = new HD\Api\Client\Http\Client($options);
-                return $client;
-            },
-        ),
         'invokables' => array(
             'HD\Instagram\Api\Tags' => 'HD\Instagram\Api\Tags',
             'HD\Instagram\Api\Subscribe' => 'HD\Instagram\Api\Subscribe',
             'HD\Instagram\Api\Media' => 'HD\Instagram\Api\Media',
-            'HD\Instagram\Listener\Auth\UrlClientId'     => 'HD\Api\Client\Listener\Auth\UrlClientId',
+            'HD\Instagram\Listener\Auth\UrlClientId'     => 'HD\Instagram\Listener\Auth\UrlClientId',
         ),
     ),
     'hd-instagram' => array(

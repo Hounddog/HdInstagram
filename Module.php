@@ -2,10 +2,10 @@
 
 namespace HD\Instagram;
 
-use Zend\ModuleManager\ModuleManager,
-    Zend\EventManager\StaticEventManager,
-    Zend\Cache\StorageFactory,
-    Zend\Mvc\ApplicationInterface;
+use Zend\ModuleManager\ModuleManager;
+use Zend\EventManager\StaticEventManager;
+use Zend\Cache\StorageFactory;
+use Zend\Mvc\ApplicationInterface;
 
 use ZfcBase\Module\AbstractModule;
 
@@ -15,15 +15,6 @@ class Module extends AbstractModule
     {
         $em = $app->getEventManager()->getSharedManager();
         $sm = $app->getServiceManager();
-
-
-        $em->attach('HD\Api\Client\Client', 'api', function($e) use ($sm) {
-            $config = $sm->get('Config');
-            $client_id = $config['hd-instagram']['client_id'];
-            $client_secret = $config['hd-instagram']['client_secret'];
-            $client = $e->getTarget();
-            $client->authenticate('url_client_id', $client_id, $client_secret);
-        } );
     }
 
     public function getNamespace(){
@@ -49,5 +40,25 @@ class Module extends AbstractModule
     public function getConfig($env = null)
     {
         return include __DIR__ . '/config/module.config.php';
+    }
+
+    public function getServiceConfig()
+    {
+        return array(
+            'factories' => array(
+                'HD\Instagram\Client' => function ($sm) {
+                    $config = $sm->get('Config');
+
+                    $httpClient = $sm->get('HD\API\Client\Http\Client');
+                    $httpClient->setOptions($config['hd-instagram']['options']);
+
+                    $client = $sm->get('HD\API\Client\Client');
+                    $client->setHttpClient($httpClient);
+                    $client->setApiNamespace('HD\Instagram');
+                    $client->authenticate('HD\Instagram\Listener\Auth\UrlClientId', $config['hd-instagram']);
+                    return $client;
+                },
+            ),
+        );
     }
 }
